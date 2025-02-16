@@ -2,7 +2,21 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>osu! 搜尋條件生成器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff66aa">
+    <title>OSU! 圖譜篩選生成器</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="shortcut icon" type="image/png" href="icons/icon-192x192.png">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NB7CJ32HKL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NB7CJ32HKL');
+    </script>
     <style>
         /* 在 style 開頭添加 CSS 變數 */
         :root {
@@ -151,9 +165,20 @@
         }
 
         .copy-button {
-            position: static;
+            background-color: #ff66aa;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
             margin: 0;
             white-space: nowrap;
+        }
+
+        .copy-button:hover {
+            background-color: #ff4499;
         }
 
         @media (max-width: 768px) {
@@ -645,6 +670,27 @@
             opacity: 0.8;
             font-weight: bold;
         }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .copy-to-osu-button {
+            background-color: #ff66aa;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .copy-to-osu-button:hover {
+            background-color: #ff4499;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -815,7 +861,10 @@
         <div class="result">
             <p>篩選條件：</p>
             <div id="output"></div>
-            <button onclick="copyToClipboard()" class="copy-button">複製篩選條件</button>
+            <div class="button-group">
+                <button onclick="copyToClipboard()" class="copy-button">複製篩選條件</button>
+                <button onclick="copyToOsu()" class="copy-to-osu-button">一鍵複製到 OSU!</button>
+            </div>
         </div>
 
         <div class="reset-container">
@@ -1694,6 +1743,43 @@
                 updateLanguage();
             }
         });
+
+        // 註冊 Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        // 一鍵複製到 OSU! 功能
+        function copyToOsu() {
+            const output = document.getElementById('output').textContent;
+            const osuProtocolUrl = `osu://search/${encodeURIComponent(output)}`;
+            
+            // 嘗試使用 osu! 協議開啟
+            const link = document.createElement('a');
+            link.href = osuProtocolUrl;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // 同時複製到剪貼簿
+            navigator.clipboard.writeText(output).then(() => {
+                const button = document.querySelector('.copy-to-osu-button');
+                button.textContent = '已複製並嘗試在 OSU! 中開啟！';
+                button.style.backgroundColor = '#4CAF50';
+                setTimeout(() => {
+                    button.textContent = '一鍵複製到 OSU!';
+                    button.style.backgroundColor = '#ff66aa';
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
