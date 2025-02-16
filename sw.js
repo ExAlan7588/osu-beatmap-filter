@@ -1,9 +1,11 @@
 const CACHE_NAME = 'osu-filter-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/manifest.json',
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'
+    '.',
+    'index.html',
+    'manifest.json',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
+    'icons/icon-192x192.png',
+    'icons/icon-512x512.png'
 ];
 
 self.addEventListener('install', event => {
