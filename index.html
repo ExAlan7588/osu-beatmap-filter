@@ -1455,7 +1455,11 @@
                         container.classList.remove('single-value');
                         const minInput = document.getElementById(`${type}Min`);
                         if (minInput) {
-                            minInput.placeholder = `最小${type.toUpperCase()}`;
+                            if (type === 'length') {
+                                minInput.placeholder = currentLang === 'zh' ? '最小時長' : 'Min Length';
+                            } else {
+                                minInput.placeholder = `最小${type.toUpperCase()}`;
+                            }
                         }
                     }
                 }
