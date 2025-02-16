@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>OSU! 圖譜篩選生成器</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #ffffff;
+            --input-bg: #2d2d2d;
+            --input-border: #404040;
+            --slider-bg: #2a1f2d;
+            --result-bg: #2d2d2d;
+            --result-border: #404040;
+            --shadow-color: rgba(0,0,0,0.3);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f5f5f5;
+            --container-bg: white;
+            --text-color: #444;
+            --input-bg: white;
+            --input-border: #ddd;
+            --slider-bg: #2a1f2d;
+            --result-bg: #f8f8f8;
+            --result-border: #ddd;
+            --shadow-color: rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            background-color: var(--container-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px var(--shadow-color);
+            border: 1px solid var(--input-border);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+            position: absolute;
+            right: 0;
+        }
+
+        h1 {
+            color: #ff66aa;
+            margin: 0;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        /* 其餘的 CSS 樣式... */
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-container">
+            <h1>OSU! 圖譜篩選生成器</h1>
+            <div class="header-buttons">
+                <button class="lang-switch" onclick="toggleLanguage()" title="切換語言">
+                    <i class="fas fa-language"></i>
+                    切換語言
+                </button>
+                <button class="theme-switch" onclick="toggleTheme()" title="切換主題">
+                    <i class="fas fa-moon"></i>
+                    切換主題
+                </button>
+            </div>
+        </div>
+
+        <!-- 主要內容... -->
+
+        <div class="footer-info">
+            <div class="creator-info">
+                製作者: <a href="https://osu.ppy.sh/users/13495225" target="_blank" class="creator-link">- Inui Toko -</a>
+            </div>
+            <div class="copyright">
+                © 2025-2025 ExAlan7588. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript 代碼...
+    </script>
+</body>
+</html> 
