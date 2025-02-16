@@ -863,7 +863,6 @@
             <div id="output"></div>
             <div class="button-group">
                 <button onclick="copyToClipboard()" class="copy-button">複製篩選條件</button>
-                <button onclick="copyToOsu()" class="copy-to-osu-button">一鍵複製到 OSU!</button>
             </div>
         </div>
 
@@ -1221,10 +1220,10 @@
                         if (container && minInput) {
                             if (rangeStates[type]) {
                                 container.classList.remove('single-value');
-                                minInput.placeholder = `最小${type.toUpperCase()}`;
+                                minInput.placeholder = type === 'length' ? '最小時長' : `最小${type.toUpperCase()}`;
                             } else {
                                 container.classList.add('single-value');
-                                minInput.placeholder = type.toUpperCase();
+                                minInput.placeholder = type === 'length' ? '時長' : type.toUpperCase();
                             }
                         }
                     });
@@ -1393,10 +1392,10 @@
             
             if (rangeStates[type]) {
                 container.classList.remove('single-value');
-                minInput.placeholder = `最小${type.toUpperCase()}`;
+                minInput.placeholder = type === 'length' ? '最小時長' : `最小${type.toUpperCase()}`;
             } else {
                 container.classList.add('single-value');
-                minInput.placeholder = type.toUpperCase();
+                minInput.placeholder = type === 'length' ? '時長' : type.toUpperCase();
                 maxInput.value = '';
             }
             
@@ -1676,8 +1675,8 @@
                 'arMax': t.maxAR,
                 'csMin': t.minCS,
                 'csMax': t.maxCS,
-                'ctbArMin': t.minAR,  // 添加 CTB 模式的 AR 輸入框
-                'ctbArMax': t.maxAR   // 添加 CTB 模式的 AR 輸入框
+                'ctbArMin': t.minAR,
+                'ctbArMax': t.maxAR
             };
 
             Object.entries(placeholderMap).forEach(([id, placeholder]) => {
@@ -1687,7 +1686,11 @@
                     // 如果輸入框在單一值模式下，更新佔位符
                     const container = input.parentElement;
                     if (container && container.classList.contains('single-value')) {
-                        input.placeholder = placeholder.replace(/^Min\s+|^Max\s+/, '');  // 修改正則表達式以更準確地移除前綴
+                        if (id === 'lengthMin') {
+                            input.placeholder = '時長';
+                        } else {
+                            input.placeholder = id.replace(/^(min|max)/i, '').toUpperCase();
+                        }
                     }
                 }
             });
@@ -1754,30 +1757,6 @@
                     .catch(err => {
                         console.log('ServiceWorker registration failed: ', err);
                     });
-            });
-        }
-
-        // 一鍵複製到 OSU! 功能
-        function copyToOsu() {
-            const output = document.getElementById('output').textContent;
-            const osuProtocolUrl = `osu://search/${encodeURIComponent(output)}`;
-            
-            // 嘗試使用 osu! 協議開啟
-            const link = document.createElement('a');
-            link.href = osuProtocolUrl;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            // 同時複製到剪貼簿
-            navigator.clipboard.writeText(output).then(() => {
-                const button = document.querySelector('.copy-to-osu-button');
-                button.textContent = '已複製並嘗試在 OSU! 中開啟！';
-                button.style.backgroundColor = '#4CAF50';
-                setTimeout(() => {
-                    button.textContent = '一鍵複製到 OSU!';
-                    button.style.backgroundColor = '#ff66aa';
-                }, 2000);
             });
         }
     </script>
