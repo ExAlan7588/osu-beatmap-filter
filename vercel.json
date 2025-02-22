@@ -13,6 +13,5 @@
     }
   ],
   "public": true,
-  "cleanUrls": true,
-  "analytics": true
+  "cleanUrls": true
 } 
