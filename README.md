@@ -9,12 +9,25 @@
 - 支持保存常用篩選組合
 - 支持深色/淺色主題切換
 - 支持中文/英文界面切換
+- 支持 PWA（漸進式網頁應用）
+  - 可安裝到桌面，像原生應用一樣使用
+  - 支持離線使用
+  - 自動更新到最新版本
+  - 快速載入和響應
 
 ## 技術棧
 
 - 前端：JavaScript + HTML + CSS
+- PWA：Service Worker + Cache API + Web Manifest
 - 後端：Vercel Serverless Functions
 - 分析：Vercel Analytics
+
+## 安裝說明
+
+1. 使用 Chrome 或 Edge 瀏覽器訪問網站
+2. 點擊地址欄右側的「安裝」按鈕
+3. 或在選單中選擇「安裝應用程式」
+4. 確認安裝後，應用會自動添加到桌面
 
 ## 授權
 
