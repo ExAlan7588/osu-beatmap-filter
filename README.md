@@ -1,4 +1,4 @@
-# OSU! 圖譜篩選生成器
+# OSU! 圖譜篩選生成器 [點我跳轉!](https://osu-beatmap-filter.vercel.app)
 
 這是一個幫助 OSU! 玩家快速生成圖譜篩選條件的工具 (僅客戶端) 。
 
