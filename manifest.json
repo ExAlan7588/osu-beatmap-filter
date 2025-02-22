@@ -1,0 +1,24 @@
+{
+    "name": "OSU! 圖譜篩選生成器",
+    "short_name": "OSU!篩選器",
+    "description": "一個簡單的 OSU! 圖譜篩選條件生成工具",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#121212",
+    "theme_color": "#ff66aa",
+    "icons": [
+        {
+            "src": "/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+} 

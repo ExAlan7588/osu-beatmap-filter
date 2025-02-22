@@ -1,0 +1,12 @@
+{
+  "name": "osu-beatmap-filter",
+  "version": "1.0.0",
+  "description": "OSU! 圖譜篩選生成器",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel deploy --prod"
+  },
+  "devDependencies": {
+    "vercel": "^32.5.3"
+  }
+} 
