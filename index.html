@@ -1105,7 +1105,7 @@
             // 處理 AR 條件
             if (!rangeStates.ar && arMin) {
                 if (parseFloat(arMin) >= 0) {
-                    conditions.push(`ar=${formatNumber(arMin)}`);
+                    conditions.push(`ar>=${formatNumber(arMin)}`);
                 }
             } else if (arMin && arMax) {
                 const arMinVal = parseFloat(arMin);
@@ -1129,7 +1129,7 @@
             // 處理 CS 條件
             if (!rangeStates.cs && csMin) {
                 if (parseFloat(csMin) >= 0) {
-                    conditions.push(`cs=${formatNumber(csMin)}`);
+                    conditions.push(`cs>=${formatNumber(csMin)}`);
                 }
             } else if (csMin && csMax) {
                 const csMinVal = parseFloat(csMin);
@@ -1162,7 +1162,7 @@
             // 處理 AR 條件
             if (!rangeStates.ctbAr && arMin) {
                 if (parseFloat(arMin) >= 0) {
-                    conditions.push(`ar=${formatNumber(arMin)}`);
+                    conditions.push(`ar>=${formatNumber(arMin)}`);
                 }
             } else if (arMin && arMax) {
                 const arMinVal = parseFloat(arMin);
@@ -1231,9 +1231,9 @@
                     }
                 }
             } else if (odMin && parseFloat(odMin) >= 0) {
-                conditions.push(`od=${formatNumber(odMin)}`);
+                conditions.push(`od>=${formatNumber(odMin)}`);
             } else if (odMax && parseFloat(odMax) >= 0) {
-                conditions.push(`od=${formatNumber(odMax)}`);
+                conditions.push(`od<=${formatNumber(odMax)}`);
             }
 
             // 處理 HP 條件
@@ -1255,9 +1255,9 @@
                     }
                 }
             } else if (hpMin && parseFloat(hpMin) >= 0) {
-                conditions.push(`hp=${formatNumber(hpMin)}`);
+                conditions.push(`hp>=${formatNumber(hpMin)}`);
             } else if (hpMax && parseFloat(hpMax) >= 0) {
-                conditions.push(`hp=${formatNumber(hpMax)}`);
+                conditions.push(`hp<=${formatNumber(hpMax)}`);
             }
 
             // 處理 BPM 條件
@@ -1279,9 +1279,9 @@
                     }
                 }
             } else if (bpmMin && parseFloat(bpmMin) >= 0) {
-                conditions.push(`bpm=${formatNumber(bpmMin)}`);
+                conditions.push(`bpm>=${formatNumber(bpmMin)}`);
             } else if (bpmMax && parseFloat(bpmMax) >= 0) {
-                conditions.push(`bpm=${formatNumber(bpmMax)}`);
+                conditions.push(`bpm<=${formatNumber(bpmMax)}`);
             }
 
             // 處理長度條件
@@ -1303,9 +1303,9 @@
                     }
                 }
             } else if (lengthMin && parseFloat(formatNumber(lengthMin, true)) > 0) {
-                conditions.push(`length=${formatNumber(lengthMin, true)}`);
+                conditions.push(`length>=${formatNumber(lengthMin, true)}`);
             } else if (lengthMax && parseFloat(formatNumber(lengthMax, true)) > 0) {
-                conditions.push(`length=${formatNumber(lengthMax, true)}`);
+                conditions.push(`length<=${formatNumber(lengthMax, true)}`);
             }
             
             // 處理關鍵字條件（移到最後）
