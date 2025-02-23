@@ -2,16 +2,18 @@
   "name": "osu-beatmap-filter",
   "version": "1.0.0",
   "description": "OSU! 圖譜篩選生成器",
-  "main": "index.html",
+  "private": true,
   "scripts": {
-    "start": "serve",
-    "build": "echo 'No build required'"
+    "dev": "vercel dev",
+    "build": "echo 'No build step required'",
+    "deploy": "vercel deploy --prod"
   },
   "dependencies": {
-    "@vercel/analytics": "latest",
-    "serve": "^14.0.0"
+    "@vercel/analytics": "^1.1.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "vercel": "latest"
+  },
   "author": "ExAlan7588",
   "license": "MIT"
 }

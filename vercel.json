@@ -10,22 +10,31 @@
       "use": "@vercel/static"
     },
     {
-      "src": "*.json",
+      "src": "manifest.json",
       "use": "@vercel/static"
     },
     {
-      "src": "*.js",
+      "src": "sw.js",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/icons/(.*)",
+      "src": "^/icons/(.*)",
+      "headers": { "cache-control": "public, max-age=31536000, immutable" },
       "dest": "/icons/$1"
     },
     {
+      "src": "^/manifest.json",
+      "dest": "/manifest.json"
+    },
+    {
+      "src": "^/sw.js",
+      "dest": "/sw.js"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/index.html"
     }
   ],
   "public": true,
