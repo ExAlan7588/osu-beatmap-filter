@@ -5,6 +5,7 @@
 </div>
 
 這是一個幫助 OSU! 玩家快速生成圖譜篩選條件的工具 (僅客戶端) 。
+然後是的，這個網頁是使用AI所製造的。
 
 ## 功能特點
 
@@ -38,6 +39,7 @@
 </div>
 
 A tool to help OSU! players quickly generate beatmap filter conditions (client-side only).
+And yes, this page was created using AI.
 
 ## Features
 
