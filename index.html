@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ff66aa">
     <title>OSU! 圖譜篩選生成器</title>
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png">
-    <link rel="shortcut icon" type="image/png" href="/icons/icon-192x192.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512x512.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512x512.png">
+    <link rel="shortcut icon" type="image/png" href="icons/icon-192x192.png">
     <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -537,14 +537,6 @@
             margin-bottom: 0;
         }
 
-        /* 移除之前的樣式 */
-        #std-specific,
-        #std-specific .form-group,
-        #std-specific .form-group label,
-        #std-specific .range-inputs {
-            /* 移除之前的 flex 相關樣式 */
-        }
-
         /* 修改滑塊的樣式 */
         #starMin, #starMinValue {
             position: relative;
@@ -706,10 +698,34 @@
             text-decoration: none;
             transition: color 0.3s;
             font-weight: bold;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            height: 20px;
         }
 
         .creator-link:hover {
             color: #ff66aa;
+        }
+
+        .creator-link::after {
+            content: "Ciallo～(∠・ω< )⌒☆";
+            position: absolute;
+            left: calc(100% + 8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: var(--text-color);
+            font-size: 0.9em;
+            white-space: nowrap;
+            pointer-events: none;
+            line-height: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .creator-link:hover::after {
+            opacity: 0.6;
         }
 
         .footer-info {
@@ -727,7 +743,6 @@
             font-size: 14px;
             opacity: 0.8;
             font-weight: bold;
-            text-align: center;
         }
 
         .copyright {
@@ -950,6 +965,16 @@
                 <div class="range-button-group">
                     <button onclick="toggleRange('length')" class="toggle-range-btn">切換</button>
                     <button onclick="resetRange('length')" class="reset-range-btn">重置</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="keywordLabel">關鍵字：</label>
+            <div class="range-inputs">
+                <input type="text" id="keyword" placeholder="搜尋關鍵字">
+                <div class="range-button-group">
+                    <button onclick="resetRange('keyword')" class="reset-range-btn">重置</button>
                 </div>
             </div>
         </div>
@@ -1185,6 +1210,7 @@
             const bpmMax = document.getElementById('bpmMax').value;
             const lengthMin = document.getElementById('lengthMin').value;
             const lengthMax = document.getElementById('lengthMax').value;
+            const keyword = document.getElementById('keyword').value.trim();
             
             // 處理 OD 條件
             if (!rangeStates.od && odMin) {
@@ -1281,6 +1307,11 @@
             } else if (lengthMax && parseFloat(formatNumber(lengthMax, true)) > 0) {
                 conditions.push(`length=${formatNumber(lengthMax, true)}`);
             }
+            
+            // 處理關鍵字條件（移到最後）
+            if (keyword) {
+                conditions.push(keyword);
+            }
         }
 
         // 添加保存目前組合的函數
@@ -1311,6 +1342,7 @@
                 ctbArMin: document.getElementById('ctbArMin')?.value,
                 ctbArMax: document.getElementById('ctbArMax')?.value,
                 keys: document.getElementById('keys')?.value,
+                keyword: document.getElementById('keyword').value,  // 添加關鍵字
                 // 保存範圍模式狀態
                 rangeStates: {...rangeStates}
             };
@@ -1416,6 +1448,7 @@
                 if (preset.ctbArMin) document.getElementById('ctbArMin').value = preset.ctbArMin;
                 if (preset.ctbArMax) document.getElementById('ctbArMax').value = preset.ctbArMax;
                 if (preset.keys) document.getElementById('keys').value = preset.keys;
+                if (preset.keyword) document.getElementById('keyword').value = preset.keyword;  // 更新關鍵字
 
                 // 更新星級滑塊
                 updateStarRange('min');
@@ -1590,6 +1623,7 @@
             document.getElementById('mode').value = '';
             document.getElementById('status').value = '';
             document.getElementById('presets').value = '';
+            document.getElementById('keyword').value = '';  // 重置關鍵字
 
             // 重設星級滑塊
             document.getElementById('starMin').value = 0;
@@ -1709,6 +1743,8 @@
                 'maxCS': '最大CS',
                 'arRange': 'AR範圍：',
                 'csRange': 'CS範圍：',
+                'keyword': '關鍵字：',
+                'keywordPlaceholder': '搜尋關鍵字',
             },
             'en': {
                 'title': 'OSU! Beatmap Filter Generator',
@@ -1768,6 +1804,8 @@
                 'maxCS': 'Max CS',
                 'arRange': 'AR Range:',
                 'csRange': 'CS Range:',
+                'keyword': 'Keyword:',
+                'keywordPlaceholder': 'Search keyword',
             }
         };
 
@@ -1920,6 +1958,10 @@
             if (maniaKeyInput) {
                 maniaKeyInput.placeholder = t.keyExample;
             }
+
+            // 更新關鍵字相關文字
+            document.getElementById('keywordLabel').textContent = t.keyword;
+            document.getElementById('keyword').placeholder = t.keywordPlaceholder;
         }
 
         // 在頁面載入時初始化語言
