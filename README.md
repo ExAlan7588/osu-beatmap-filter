@@ -20,13 +20,6 @@
   - 自動更新到最新版本
   - 快速載入和響應
 
-## 技術棧
-
-- 前端：JavaScript + HTML + CSS
-- PWA：Service Worker + Cache API + Web Manifest
-- 後端：Vercel Serverless Functions
-- 分析：Vercel Analytics
-
 ## 安裝說明
 
 1. 使用 Chrome 或 Edge 瀏覽器訪問網站
@@ -58,13 +51,6 @@ A tool to help OSU! players quickly generate beatmap filter conditions (client-s
    * Offline support
    * Automatic updates
    * Fast loading and response
-
-## Tech Stack
-
-- Frontend: JavaScript + HTML + CSS
-- PWA: Service Worker + Cache API + Web Manifest
-- Backend: Vercel Serverless Functions
-- Analytics: Vercel Analytics
 
 ## Installation
 
