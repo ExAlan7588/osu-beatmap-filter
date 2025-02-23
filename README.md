@@ -4,7 +4,6 @@
 
 </div>
 
-
 這是一個幫助 OSU! 玩家快速生成圖譜篩選條件的工具 (僅客戶端) 。
 
 ## 功能特點
@@ -39,18 +38,22 @@
 
 ---
 
+<div align="center">
+
 # OSU! Beatmap Filter Generator [Click here!](https://osu-beatmap-filter.vercel.app)
+
+</div>
 
 A tool to help OSU! players quickly generate beatmap filter conditions (client-side only).
 
 ## Features
 
-* Supports multiple game modes (OSU!, Taiko, Catch the Beat, Mania)
-* Adjustable parameters including Star Rating, AR, CS, HP, OD
-* Save frequently used filter combinations
-* Dark/Light theme switching
-* Chinese/English interface switching
-* PWA (Progressive Web App) support
+- Supports multiple game modes (OSU!, Taiko, Catch the Beat, Mania)
+- Adjustable parameters including Star Rating, AR, CS, HP, OD
+- Save frequently used filter combinations
+- Dark/Light theme switching
+- Chinese/English interface switching
+- PWA (Progressive Web App) support
    * Install to desktop for native app-like experience
    * Offline support
    * Automatic updates
@@ -58,10 +61,10 @@ A tool to help OSU! players quickly generate beatmap filter conditions (client-s
 
 ## Tech Stack
 
-* Frontend: JavaScript + HTML + CSS
-* PWA: Service Worker + Cache API + Web Manifest
-* Backend: Vercel Serverless Functions
-* Analytics: Vercel Analytics
+- Frontend: JavaScript + HTML + CSS
+- PWA: Service Worker + Cache API + Web Manifest
+- Backend: Vercel Serverless Functions
+- Analytics: Vercel Analytics
 
 ## Installation
 
