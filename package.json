@@ -4,16 +4,9 @@
   "description": "OSU! 圖譜篩選生成器",
   "private": true,
   "scripts": {
-    "dev": "vercel dev",
-    "build": "echo 'No build step required'",
-    "deploy": "vercel deploy --prod"
+    "build": "echo 'No build step required'"
   },
   "dependencies": {
     "@vercel/analytics": "^1.1.1"
-  },
-  "devDependencies": {
-    "vercel": "latest"
-  },
-  "author": "ExAlan7588",
-  "license": "MIT"
+  }
 }
