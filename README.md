@@ -5,7 +5,6 @@
 </div>
 
 這是一個幫助 OSU! 玩家快速生成圖譜篩選條件的工具 (僅客戶端) 。
-然後是的，這個網頁是使用AI所製造的。
 
 ## 功能特點
 
@@ -20,6 +19,13 @@
   - 支持離線使用
   - 自動更新到最新版本
   - 快速載入和響應
+
+## 技術棧
+
+- 前端：JavaScript + HTML + CSS
+- PWA：Service Worker + Cache API + Web Manifest
+- 後端：Vercel Serverless Functions
+- 分析：Vercel Analytics
 
 ## 安裝說明
 
@@ -39,7 +45,6 @@
 </div>
 
 A tool to help OSU! players quickly generate beatmap filter conditions (client-side only).
-And yes, this page was created using AI.
 
 ## Features
 
@@ -53,6 +58,13 @@ And yes, this page was created using AI.
    * Offline support
    * Automatic updates
    * Fast loading and response
+
+## Tech Stack
+
+- Frontend: JavaScript + HTML + CSS
+- PWA: Service Worker + Cache API + Web Manifest
+- Backend: Vercel Serverless Functions
+- Analytics: Vercel Analytics
 
 ## Installation
 
