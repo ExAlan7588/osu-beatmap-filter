@@ -1,5 +1,7 @@
 <div align="center">
 
+EN | [ZH](https://github.com/ExAlan7588/osu-beatmap-filter/blob/main/README.md)
+
 # OSU! Beatmap Filter Generator [Click here!](https://osu-beatmap-filter.vercel.app)
 
 </div>
