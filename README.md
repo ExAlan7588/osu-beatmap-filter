@@ -1,5 +1,7 @@
 <div align="center">
 
+[EN](https://github.com/ExAlan7588/osu-beatmap-filter/blob/main/README_en.md) | ZH
+
 # OSU! 圖譜篩選生成器 [點我跳轉!](https://osu-beatmap-filter.vercel.app)
 
 </div>
